@@ -42,7 +42,7 @@ The data obtained started from `2000-01-01`until `2020-06-30` with 22 columns/ v
 The table below shows the amount of missing values in the original dataframe. As you can see, given that the dimension of the data is 7487 x 23, some variables have *a lot* of missing data.
 
 <p align="center">
-    <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/miss_var_table.png" alt="Missing values for different variables">
+    <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/miss_var_table.png" alt="Missing values for different variables">
 </p>
 
 #### Patterns of Missing Variables
