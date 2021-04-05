@@ -19,6 +19,7 @@ They've provided several datasets on several waterbody in Italy. As it is easy t
 - [Conclusion](#Conclusion)
 
 ## Background
+[Back to top](#table-of-content)
 ### Problem definition
 For this project, we are trying to answer the question of *What is the future depth to underground water level for Luco Aquifer?*
 
@@ -31,6 +32,7 @@ According to NationalGeography, an aquifer is a body of rock and/or sediment tha
 
 
 ## Data Wrangling
+[Back to top](#table-of-content)
 The data obtained started from `2000-01-01`until `2020-06-30` with 22 columns/ variables. However, there were quite a few missing values. As such, I decided to explore the missing values and impute them.
 
 ### Missing Values
@@ -100,6 +102,7 @@ Here's a run-down of the series by year. In each year, there seems to be a gradu
 </p>
 
 ## Fitting Models And Forecasting
+[Back to top](#table-of-content)
 In order to train and select the models, I've split the time series into training and test data. In contrast to the conventional machine learning challenges, you can't randomly subset the data because there is a chronology element to the data. The training data starts from 2008-01-01 and ends at 2016-12-31. The test data starts from 2017-01-01 onwards. 5 models were used because of the seasonality components:
 
 - Naive seasonal forecast
@@ -130,6 +133,7 @@ Let's look at the diagnostics of Arima. Here, the best model identified using `a
 </p>
 
 ## Conclusion
+[Back to top](#table-of-content)
 There appears to be a seasonal component in the depth to underground water in Luco Aquifer. The level seems to rise during early quarter of the year before falling only to gradually climb again from Q3. The best model we get using the daily data is Arima(3,1,0)(0,1,0). It is capable of accurately predicting the depth in 2017 but the prediction is would be off by 2018. Looking at accuracy itself is not enough. It is imperative to plot the predictions to understand if the forecast is reasonable. A model capturing the changing variance like G-ARCH might be useful.
 
 *[Source of the clock image for the badge](https://www.flaticon.com/free-icon/chronometer_850960?term=time&page=1&position=6&page=1&position=6&related_id=850960&origin=search)
