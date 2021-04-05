@@ -10,6 +10,14 @@ The data was provided from The Acea Group fromItaly. The Acea Group is one of th
 
 They've provided several datasets on several waterbody in Italy. As it is easy to imagine, a water supply company struggles with the need to forecast the water level in a waterbody (water spring, lake, river, or aquifer) to handle daily consumption. During fall and winter waterbodies are refilled, but during spring and summer they start to drain. To help preserve the health of these waterbodies it is important to predict the most efficient water availability, in terms of level and water flow for each day of the year. The Acea Group deals with four different type of waterbodies: water springs, lakes, rivers and aquifers. In this analytics, we'll look specifically at Luco Aquifer.
 
+## Table of content
+
+- [Background](#background)
+- [Data Wrangling](#Data-Wrangling)
+- [Exploratory Analysis](#Exploratory-Analysis)
+- [Fitting Models And Forecasting](#Fitting-Models-And-Forecasting)
+- [Conclusion](#Conclusion)
+
 ## Background
 ### Problem definition
 For this project, we are trying to answer the question of *What is the future depth to underground water level for Luco Aquifer?*
@@ -85,8 +93,41 @@ Here's how the time series look like after the imputation.
 </p>
 
 ### Seasonality Plot
-Here's a run-down of the series by year. In each year, the depth seems to shortended and then gradually increase around Q3 and climbed slowly near the end of the year.
+Here's a run-down of the series by year. In each year, there seems to be a gradual increase from Q1 to Q2 before dropping. Then, around Q3 it climbed slowly towards the end of the year.
 
 <p align="center">
-    <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/Seasonal_plot.png" alt="Seasonal Plot" height=400 width=600>
+    <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/Seasonal_plot.png" alt="Seasonal Plot">
 </p>
+
+## Fitting Models And Forecasting
+In order to train and select the models, I've split the time series into training and test data. In contrast to the conventional machine learning challenges, you can't randomly subset the data because there is a chronology element to the data. The training data starts from 2008-01-01 and ends at 2016-12-31. The test data starts from 2017-01-01 onwards. 5 models were used because of the seasonality components:
+
+- Naive seasonal forecast
+- Seasonal arima (Sarima)
+- Exponential Smoothing
+- Seasonal decomposition + Arima on seasonally adjusted data
+- Seasonal decomposition + Exponential Smoothing on seasonally adjusted data
+
+### Accuracy of Models
+The forecasts from the 5 models were then compared against the test data for accuracy. The table below shows that Exponential Smoothing has the lowest root mean square error (RMSE) and better accuracy in general but we'll see that the plot shows otherwise.
+
+<p align="center">
+    <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/accuracy_table.png" alt="Accuracy for the 5 models">
+</p>
+
+### Forecast Plot
+From the forecast plot, we could see that even Exponential Smoothing gave the lowest RMSE in general, it has just predicted the mean. Snaive had basically predicted the same pattern from one season ago. Seasonal arima had the next best scores in terms of accuracy and we could see that for the first year, the prediction was quite close of the actual values but in 2018, there was a sharp increase from the start. Even though Sarima's prediction for 2018 was off by a bit, it had generally preserved the pattern.
+
+<p align="center">
+    <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/Forecast_plot.png" alt="Forecast from the 5 models">
+</p>
+
+### Diagnostics of Seasonal Arima 
+Let's look at the diagnostics of Arima. Here, the best model identified using `auto.arima` which employed AICc to identify the best model revealed that the best fit is Arima(3,1,0)(0,1,0)[365]. The Ljung-Box test showed that there is still autocorrelation in the residuals. This is echoed in ACF of the residuals. Looking at the residual plot, there seem to be some sudden increase in flanking 2012. Maybe a model capturing the changing variance might be useful.
+
+<p align="center">
+    <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/sarima_diagnostics.png" alt="Diagnostics of the Sarima model">
+</p>
+
+## Conclusion
+There appears to be a seasonal component in the depth to underground water in Luco Aquifer. The level seems to rise during early quarter of the year before falling only to gradually climb again from Q3. The best model we get using the daily data is Arima(3,1,0)(0,1,0). It is capable of accurately predicting the depth in 2017 but the prediction is would be off by 2018. Looking at accuracy itself is not enough. It is imperative to plot the predictions to understand if the forecast is reasonable. A model capturing the changing variance like G-ARCH might be useful.
