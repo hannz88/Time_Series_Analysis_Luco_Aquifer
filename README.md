@@ -129,7 +129,7 @@ From the forecast plot, we could see that even Exponential Smoothing gave the lo
 </p>
 
 ### Diagnostics of Seasonal Arima 
-Let's look at the diagnostics of Arima. Here, the best model identified using `auto.arima` which employed AICc to identify the best model revealed that the best fit is Arima(3,1,0)(0,1,0)[365]. The Ljung-Box test showed that there is still autocorrelation in the residuals. This is echoed in ACF of the residuals. Looking at the residual plot, there seem to be some sudden increase in flanking 2012. Maybe a model capturing the changing variance might be useful.
+Let's look at the diagnostics of Arima. Here, the best model identified using `auto.arima` which employed AICc to identify the best model revealed that the best fit is Arima(3,1,0)(0,1,0)[365]. The Ljung-Box test showed that there is still autocorrelation in the residuals (p < 0.05). This is echoed in ACF of the residuals. Looking at the residual plot, there seem to be some sudden increase in flanking 2012. Maybe a model capturing the changing variance might be useful.
 
 <p align="center">
     <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/sarima_diagnostics.png" alt="Diagnostics of the Sarima model">
