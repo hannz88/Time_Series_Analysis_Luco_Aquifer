@@ -52,11 +52,11 @@ The chart below shows the patterns of missing values for each variables by year.
 Even after subsetting the original data, it is still not perfect. The graph below shows the gaps in the data. The red bars are the gaps.
 
 <p align="center">
-    <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/Missing_values_ts.png" alt="Gaps of Missing Values in Time Series" width=width/2 height=height/2>
+    <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/Missing_values_ts.png" alt="Gaps of Missing Values in Time Series" height=150>
 </p>
 
 #### Imputation
-To perform time series analysis, you'll need regular data. As such, I decided to impute the missing values using the following methods and the graphs aftewards showed how well the imputation fits.
+To perform time series analysis, you'll need regular data. As such, I decided to impute the missing values using the following methods and the graphs aftewards showed how well the imputation fits. From the chart below, seasonal decomposition imputation presented the best fit compared to other methods.
 
 - NOCB: next observation carried backward, fill na with next observation
 - Mean: fill na with mean
@@ -68,3 +68,4 @@ To perform time series analysis, you'll need regular data. As such, I decided to
 <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/imp_nocb.png" width="400"/> <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/imp_mean.png" width="400"/>
 <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/imp_ewma.png" width="400"/> <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/imp_linear.png" width="400"/>
 <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/imp_stineman.png" width="400"/> <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/imp_seadec.png" width="400"/>
+
