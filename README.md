@@ -88,5 +88,5 @@ Here's how the time series look like after the imputation.
 Here's a run-down of the series by year. In each year, the depth seems to shortended and then gradually increase around Q3 and climbed slowly near the end of the year.
 
 <p align="center">
-    <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/Seasonal_plot.png" alt="Seasonal Plot" height=400>
+    <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/Seasonal_plot.png" alt="Seasonal Plot" height=400 width=700>
 </p>
