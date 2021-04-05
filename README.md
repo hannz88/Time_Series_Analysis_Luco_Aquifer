@@ -69,3 +69,24 @@ To perform time series analysis, you'll need regular data. As such, I decided to
 <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/imp_ewma.png" width="400"/> <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/imp_linear.png" width="400"/>
 <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/imp_stineman.png" width="400"/> <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/imp_seadec.png" width="400"/>
 
+## Exploratory Analysis
+### Correlation Matrix
+Here's the correlation matrix for the variables that I've chosen. Even though I am not doing the multivariate analysis, it is interesting to see that Temperature Monteroni is hightly correlated with Temperature of Pentolina while Rainfall at Montalcinello is highly correlated with rainfull of Siminnano and Sovicelle. 
+
+<p align="center">
+    <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/correlation_plot.png" alt="Correlation plot for variables">
+</p>
+
+### Time Series Plot
+Here's how the time series look like after the imputation.
+
+<p align="center">
+    <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/Time_plot.png" alt="Time Series Plot" height=400>
+</p>
+
+### Seasonality Plot
+Here's a run-down of the series by year. In each year, the depth seems to shortended and then gradually increase around Q3 and climbed slowly near the end of the year.
+
+<p align="center">
+    <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/Seasonal_plot.png" alt="Seasonal Plot" height=400>
+</p>
