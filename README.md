@@ -52,7 +52,7 @@ The chart below shows the patterns of missing values for each variables by year.
 Even after subsetting the original data, it is still not perfect. The graph below shows the gaps in the data. The red bars are the gaps.
 
 <p align="center">
-    <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/Missing_values_ts.png" alt="Gaps of Missing Values in Time Series" width="400" height="200">
+    <img src="https://github.com/hannz88/Time_Series_Analysis_Luco_Aquifer/blob/main/Images/Missing_values_ts.png" alt="Gaps of Missing Values in Time Series" width=width/2 height=height/2>
 </p>
 
 #### Imputation
